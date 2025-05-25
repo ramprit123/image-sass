@@ -1,3 +1,4 @@
+import { UserButton } from "@clerk/nextjs";
 import { ArrowRight, Check, Shield, Sparkles, Star, Zap } from "lucide-react";
 
 export default function Home() {
