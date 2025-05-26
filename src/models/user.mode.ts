@@ -3,7 +3,7 @@ import mongoose, { Schema, Document, models } from "mongoose";
 export interface IUser extends Document {
   firstName: string;
   lastName: string;
-  username: string;
+  username?: string;
   email: string;
   photo?: string; // Optional field for user photo
   planeId?: string; // Optional field for Plane integration
@@ -15,7 +15,7 @@ export interface IUser extends Document {
 const UserSchema: Schema = new Schema<IUser>({
   firstName: { type: String, required: true, trim: true },
   lastName: { type: String, required: true, trim: true },
-  username: { type: String, required: true, unique: true, trim: true },
+  username: { type: String, required: false, unique: true, trim: true },
   email: {
     type: String,
     required: true,

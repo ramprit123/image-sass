@@ -7,6 +7,15 @@ import connectMongo from "../mongodb";
 import { User } from "@/models/user.mode";
 
 // CREATE
+export async function getAllUsers() {
+  try {
+    await connectMongo();
+    const users = await User.find();
+    return JSON.parse(JSON.stringify(users));
+  } catch (error) {
+    handleError(error);
+  }
+}
 export async function createUser(user: CreateUserParams) {
   try {
     await connectMongo();
